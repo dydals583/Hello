@@ -1,0 +1,59 @@
+import random
+from tkinter import *
+
+
+win = Tk()
+win.geometry('1400x300')
+win.title("랜덤한 숫자 뽑기")
+win.option_add('*Font', '궁서 20')
+
+label1 = Label(win, text="가장 오른쪽 버튼을 클릭하세요.", fg = 'purple')
+label1.pack()
+label2 = Label(win, text = "20점 이상은 1등")
+label2.pack()
+label3 = Label(win, text = "15점 이상은 2등")
+label3.pack()
+label4 = Label(win, text = "10점 이상은 3등")
+label4.pack()
+label5 = Label(win, text = "나머지는 꽝입니다")
+label5.pack()
+def ran():
+    num = random.randint(1,10) 
+    btn.config(text = num)
+    num1 = random.randint(1,10)
+    btn1.config(text = num1)
+    num2 = random.randint(1,10)
+    btn2.config(text = num2)
+    sum = num + num1 + num2
+    if sum >= 20:
+        btn3.config(text = f"**1등 입니다.({sum})**")
+    elif sum >= 15:
+        btn3.config(text = f"**2등 입니다.({sum})**")
+    elif sum >= 10:
+        btn3.config(text = f"**3등 입니다.({sum})**")
+    else:
+        btn3.config(text = f"**꽝입니다.({sum})**")
+
+btn = Button(win)
+btn.config(text = "숫자 뽑기")
+btn.config(width = 20, height= 5, bg = 'red') 
+
+btn1 = Button(win)
+btn1.config(text = "숫자 뽑기")
+btn1.config(width = 20, height= 5, bg = 'orange')
+
+btn2 = Button(win)
+btn2.config(text = "숫자 뽑기")
+btn2.config(width = 20, height= 5, bg = 'yellow')
+
+btn3 = Button(win)
+btn3.config(text = "")
+btn3.config(width = 20, height= 5, bg = 'green')
+btn3.config(command= ran) 
+
+btn.pack(side="left")
+btn1.pack(side="left")
+btn2.pack(side="left")
+btn3.pack(side="left")
+
+win.mainloop()
