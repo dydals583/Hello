@@ -2,12 +2,12 @@ import random
 from tkinter import *
 
 
-win = Tk()
-win.geometry('1400x300')
-win.title("랜덤한 숫자 뽑기")
-win.option_add('*Font', '궁서 20')
+win = Tk() #창을 생성
+win.geometry('1400x300') #goemetry함수를 사용하여 창의 크기를 1400X500으로 설정함
+win.title("랜덤한 숫자 뽑기") #title함수를 사용하여 창의 이름을 바꿔줌
+win.option_add('*Font', '궁서 20') #글자체를 궁서로 바꾸고 글자 크기를 20으로 맞춤
 
-label1 = Label(win, text="가장 오른쪽 버튼을 클릭하세요.", fg = 'purple')
+label1 = Label(win, text="가장 오른쪽 버튼을 클릭하세요.", fg = 'purple') #창에 게임 룰을 설명
 label1.pack()
 label2 = Label(win, text = "20점 이상은 1등")
 label2.pack()
@@ -17,15 +17,15 @@ label4 = Label(win, text = "10점 이상은 3등")
 label4.pack()
 label5 = Label(win, text = "나머지는 꽝입니다")
 label5.pack()
-def ran():
-    num = random.randint(1,10) 
-    btn.config(text = num)
-    num1 = random.randint(1,10)
+def ran(): #ran 이라는 함수 생성
+    num = random.randint(1,10) #num 이라는 변수에 랜덤함수로 1~10까지 랜덤한 수를 넣음
+    btn.config(text = num) #버튼 위에 num을 출력
+    num1 = random.randint(1,10) 
     btn1.config(text = num1)
     num2 = random.randint(1,10)
     btn2.config(text = num2)
-    sum = num + num1 + num2
-    if sum >= 20:
+    sum = num + num1 + num2 #나온 수들을 다 더해줌
+    if sum >= 20: #if 문을 사용하여 등수를 매김
         btn3.config(text = f"**1등 입니다.({sum})**")
     elif sum >= 15:
         btn3.config(text = f"**2등 입니다.({sum})**")
@@ -34,9 +34,9 @@ def ran():
     else:
         btn3.config(text = f"**꽝입니다.({sum})**")
 
-btn = Button(win)
-btn.config(text = "숫자 뽑기")
-btn.config(width = 20, height= 5, bg = 'red') 
+btn = Button(win) #버튼 생성
+btn.config(text = "숫자 뽑기") #버튼 위에 글자 쓰기
+btn.config(width = 20, height= 5, bg = 'red') #버튼 크기와 색 지정
 
 btn1 = Button(win)
 btn1.config(text = "숫자 뽑기")
@@ -51,9 +51,9 @@ btn3.config(text = "")
 btn3.config(width = 20, height= 5, bg = 'green')
 btn3.config(command= ran) 
 
-btn.pack(side="left")
+btn.pack(side="left") #버튼들을 왼쪽 정렬함
 btn1.pack(side="left")
 btn2.pack(side="left")
 btn3.pack(side="left")
 
-win.mainloop()
+win.mainloop() # 창 실행
